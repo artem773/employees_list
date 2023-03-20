@@ -1,7 +1,8 @@
-import './employers-add-form.css';
+import './employees-add-form.css';
 
-const EmployersAddForm = ()=>{
-    <div className="app-add-form">
+const EmployeesAddForm = () => {
+    return (
+        <div className="app-add-form">
             <h3>Добавьте нового сотрудника</h3>
             <form
                 className="add-form d-flex">
@@ -16,6 +17,7 @@ const EmployersAddForm = ()=>{
                         className="btn btn-outline-light">Добавить</button>
             </form>
         </div>
+    )
 }
 
-export default EmployersAddForm;
+export default EmployeesAddForm;
