@@ -1,22 +1,22 @@
 import './app-filter.css';
 
-const AppFilter = () => { 
-    return(
+const AppFilter = () => {
+    return (
         <div className="btn-group">
-            <button 
+            <button
                 className="button btn button-light"
                 type="button">
-                    All employees
+                All employees
             </button>
-            <button 
+            <button
                 className="button btn button-outline-light"
                 type="button">
-                    To grow up
+                To grow up
             </button>
-            <button 
+            <button
                 className="button btn button-outline-light"
                 type="button">
-                    Salary more 1000$
+                Salary more 1000$
             </button>
         </div>
     );

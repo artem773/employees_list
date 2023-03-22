@@ -1,6 +1,6 @@
 import './app-info.css';
 
-const AppInfo = ()=>{
+const AppInfo = () => {
     return (
         <div className="app-info">
             <h1>Employees list</h1>
@@ -8,6 +8,6 @@ const AppInfo = ()=>{
             <h3>Premium awards: </h3>
         </div>
     );
-} 
+}
 
 export default AppInfo;
