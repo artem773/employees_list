@@ -5,7 +5,8 @@ class EmployeesListItem extends Component {
     constructor(props){
         super(props);
         this.state = {
-            increase: false
+            increase: false,
+            like: false
         }
     }
 
@@ -15,18 +16,27 @@ class EmployeesListItem extends Component {
         }))
     }
 
+    onLike = () => {
+        this.setState(({like}) => ({
+            like: !like
+        }))
+    }
+
     render(){
-        const {name, salary} = this.props;
-        const {increase} = this.state;
+        const {name, salary, onDelete} = this.props;
+        const {increase, like} = this.state;
         
         let classNames = "list-group-item d-flex justify-content-between"; // це якщо користувач клікнув на одне із імен(шоб мінявся колір імені)
         if (increase) {
-            classNames += ' increase';
+            classNames += ' increase ';
+        }
+        if(like){
+            classNames += ' like';
         }
 
         return (
             <li className={classNames}>
-                <span className="list-group-item-label">{name}</span>
+                <span className="list-group-item-label" onClick={this.onLike}>{name}</span>
                 <input type="text" className="list-group-item-input" defaultValue={salary + "$"} />
                 <div className='d-flex justify-content-center align-items-center'>
                     <button type="button"
@@ -36,7 +46,8 @@ class EmployeesListItem extends Component {
                     </button>
 
                     <button type="button"
-                        className="btn-trash btn-sm ">
+                        className="btn-trash btn-sm "
+                        onClick={onDelete}>
                         <i className="fas fa-trash"></i>
                     </button>
                     <i className="fas fa-star"></i>
