@@ -19,7 +19,9 @@ class App extends Component {
                 { name: "Stievens K.", salary: "500", increase: false, id: 4 }
             ]
         }
+        this.maxId = 5;
     }
+    
     
     deleteItem = (id) => {
         this.setState(({data}) => {
@@ -37,6 +39,34 @@ class App extends Component {
         })
     }
 
+    addItem = (name, salary) => { //добавляем нового пользователя 
+        const newItem = {
+            name,
+            salary,
+            increase: false,
+            id: this.maxId++
+        }
+        this.setState(({data}) => {
+            const newArr = [...data, newItem];
+            return {
+                data: newArr
+            }
+        }); 
+    }
+
+    onToggleProp = (id, prop) => {
+        this.setState(({data}) => ({
+            data: data.map(item => {
+                if (item.id === id) {
+                    return {...item, [prop]: !item[prop]}
+                }
+                return item;
+            })
+        }))
+    }
+
+    
+
     render(){
 
         return (
@@ -50,8 +80,9 @@ class App extends Component {
     
                 <EmployersList 
                     data={this.state.data}
-                    onDelete={this.deleteItem} />
-                <EmployeesAddForm />
+                    onDelete={this.deleteItem} 
+                    onToggleProp={this.onToggleProp} />
+                <EmployeesAddForm onAdd={this.addItem}/>
             </div>
         );
     }
