@@ -59,11 +59,11 @@
     opacity: 0;
 }
 
-.list-group-item.like{
-    color: whitesmoke;
+.list-group-item.rise{
+    color: #FFD700;
 }
 
-.list-group-item.like .fa-star {
+.list-group-item.rise .fa-star {
     opacity: 1;
     transform: translateX(0px);
     text-decoration: none;
