@@ -30,6 +30,13 @@
     font-size: 17px;
     border: none;
     cursor: pointer;
+    background-color: transparent;
+}
+.list-group-item img{
+    align-items: center;
+    color: #f7bcbc;
+    width: 25px;
+    height: 25px;
 }
 
 .list-group-item .btn-cookie {
@@ -37,7 +44,7 @@
 }
 
 .list-group-item .btn-trash {
-    color: #e5383b;
+    color: #ffffff;
 }
 
 .list-group-item .fa-star {

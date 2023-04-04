@@ -1,4 +1,4 @@
-.search-panel{
+.panel-search{
     margin-top: 15px;
     width: 100%;
     padding: 25px;
@@ -7,13 +7,28 @@
     border-radius: 24px;
     color: black;
 }
-.search-input{
-    width: 100%;
-    background: #FEDA79;
-    border: none;
-    border-bottom: 2px solid black;
-    color: black;
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
 }
-input[type=text]:focus{
-    border: none;
+
+.form__field {
+  width: 46.3%;
+  border: 0;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  outline: 0;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder{
+  color: #afa486;
+}
+.form__field:focus { 
+  border-bottom: 1px solid black;
+  width: 100%;
 }

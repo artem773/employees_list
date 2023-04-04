@@ -1,36 +1,39 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import Cookie from '../../img/cookie.png'
+import Trash from '../../img/trash.png'
 import './employers-list-item.css';
 
 class EmployeesListItem extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             increase: false,
-            like: false
+            like: false,
+            trash: { Trash }
         }
     }
 
     onIncrease = () => {
-        this.setState(({increase}) => ({
+        this.setState(({ increase }) => ({ //деструктуріруєм ({}) => ({})
             increase: !increase
         }))
     }
 
     onLike = () => {
-        this.setState(({like}) => ({
+        this.setState(({ like }) => ({
             like: !like
         }))
     }
 
-    render(){
-        const {name, salary, onDelete} = this.props;
-        const {increase, like} = this.state;
-        
+    render() {
+        const { name, salary, onDelete } = this.props;
+        const { increase, like } = this.state;
+
         let classNames = "list-group-item d-flex justify-content-between"; // це якщо користувач клікнув на одне із імен(шоб мінявся колір імені)
         if (increase) {
             classNames += ' increase ';
         }
-        if(like){
+        if (like) {
             classNames += ' like';
         }
 
@@ -42,13 +45,15 @@ class EmployeesListItem extends Component {
                     <button type="button"
                         className="btn-cookie btn-sm "
                         onClick={this.onIncrease}>
-                        <i className="fas fa-cookie"></i>
+                        {/* <i className='fas fa-cookie'></i> */}
+                        <img src={Cookie} alt="cookie" />
                     </button>
 
                     <button type="button"
                         className="btn-trash btn-sm "
                         onClick={onDelete}>
-                        <i className="fas fa-trash"></i>
+                        {/* <i className="fas fa-trash"></i> */}
+                        <img src={Trash} alt="" />
                     </button>
                     <i className="fas fa-star"></i>
                 </div>

@@ -22,7 +22,6 @@ class App extends Component {
         this.maxId = 5;
     }
     
-    
     deleteItem = (id) => {
         this.setState(({data}) => {
 
@@ -65,15 +64,13 @@ class App extends Component {
         }))
     }
 
-    
-
     render(){
 
         return (
             <div className="app">
                 <AppInfo />
     
-                <div className="search-panel">
+                <div className="panel-search">
                     <SearchPanel />
                     <AppFilter />
                 </div>
