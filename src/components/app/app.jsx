@@ -8,78 +8,59 @@ import EmployeesAddForm from '../employers-add-form/employees-add-form';
 
 import './app.css';
 
+//використовуємо класи коли нам треба буде динамиічно змінювати елементи на сторінці 
 class App extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             data: [
                 { name: "Hoffman A", salary: "800", increase: false, id: 1 },
                 { name: "Smith J", salary: "5000", increase: true, id: 2 },
                 { name: "Richards N.", salary: "3000", increase: false, id: 3 },
-                { name: "Stievens K.", salary: "500", increase: false, id: 4 }
             ]
         }
         this.maxId = 5;
     }
-    
-    deleteItem = (id) => {
-        this.setState(({data}) => {
 
-            //создаем новий массів data но у же без того обьекта что ми удаляем
-            //const index = data.findIndex(elem => elem.id === id); //находім елемент із масіва по індексу которий содежіт id (унікальний ідентефікатор)
-            //сложний способ
-            // const before = data.slice(0, index);
-            // const after = data.slice(index + 1);
-            // const newArr = [...before, ...after];
-            //легкій способ - filter()
-            return{
+    deleteItem = (id) => { //удаляєм працівника
+        this.setState(({ data }) => {
+            return {
                 data: data.filter(item => item.id !== id)
             }
         })
     }
 
-    addItem = (name, salary) => { //добавляем нового пользователя 
+    addItem = (name, salary) => { //добавляємо нового працівника
         const newItem = {
             name,
             salary,
             increase: false,
             id: this.maxId++
         }
-        this.setState(({data}) => {
-            const newArr = [...data, newItem];
+        this.setState(({ data }) => {
+            const newData = [...data, newItem];
             return {
-                data: newArr
+                data: newData
             }
-        }); 
+        })
     }
 
-    onToggleProp = (id, prop) => {
-        this.setState(({data}) => ({
-            data: data.map(item => {
-                if (item.id === id) {
-                    return {...item, [prop]: !item[prop]}
-                }
-                return item;
-            })
-        }))
-    }
-
-    render(){
+    render() {
+        const { data } = this.state;
 
         return (
             <div className="app">
                 <AppInfo />
-    
+
                 <div className="panel-search">
                     <SearchPanel />
                     <AppFilter />
                 </div>
-    
-                <EmployersList 
-                    data={this.state.data}
-                    onDelete={this.deleteItem} 
-                    onToggleProp={this.onToggleProp} />
-                <EmployeesAddForm onAdd={this.addItem}/>
+
+                <EmployersList
+                    data={data}
+                    onDelete={this.deleteItem} />
+                <EmployeesAddForm onAdd={this.addItem} />
             </div>
         );
     }

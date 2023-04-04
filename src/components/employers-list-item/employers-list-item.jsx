@@ -51,7 +51,7 @@ class EmployeesListItem extends Component {
 
                     <button type="button"
                         className="btn-trash btn-sm "
-                        onClick={onDelete}>
+                        onClick={onDelete}> {/*визов знаходиця на employers list => app*/}
                         {/* <i className="fas fa-trash"></i> */}
                         <img src={Trash} alt="" />
                     </button>
